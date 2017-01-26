@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParalellLoops", "ParalellLoops\ParalellLoops.csproj", "{9DA6A9CB-1ED2-4F7D-B34D-DC15AC4D628C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerTest", "WorkerTest\WorkerTest.csproj", "{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9DA6A9CB-1ED2-4F7D-B34D-DC15AC4D628C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DA6A9CB-1ED2-4F7D-B34D-DC15AC4D628C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DA6A9CB-1ED2-4F7D-B34D-DC15AC4D628C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
