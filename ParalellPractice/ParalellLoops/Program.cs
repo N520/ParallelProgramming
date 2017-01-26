@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ParalellLoops {
     class Program {
         private static Stopwatch sw;
         private static FakeDataProvider dataProvider;
-        private static WaitHandle ready = new AutoResetEvent(false);
+        private static EventWaitHandle ready = new AutoResetEvent(false);
         static void Main(string[] args) {
             dataProvider = new FakeDataProvider();
             IEnumerable<int> testData = Enumerable.Range(0, 10000);
@@ -56,14 +57,52 @@ namespace ParalellLoops {
                 }));
             }
 
-            Console.WriteLine("### Tasks sequential ###");
-            foreach (var item in taskData) {
-                item.Start();
-            }
-            Console.WriteLine("MainThread is sleeping");
-            Thread.Sleep(10000);
-            Console.WriteLine("MainThread continues");
+            //Console.WriteLine("### Tasks sequential ###");
+            //foreach (var item in taskData) {
+            //    item.Start();
+            //}
+            //Console.WriteLine("MainThread is sleeping");
+            //Thread.Sleep(10000);
+            //Console.WriteLine("MainThread continues");
 
+
+            Console.WriteLine("### consumer Producer with BlockingCollection ###");
+            BlockingCollection<Product> dataList = new BlockingCollection<Product>(10);
+            Task producer = Task.Run(() => {
+                for (int i = 0; i < 20; i++) {
+                    var product = Produce(i, "Car " + i);
+                    if (!dataList.TryAdd(product))
+                        Console.WriteLine($"Couldnt add {product}");
+                }
+                dataList.CompleteAdding();
+            });
+            Thread.Sleep(2000);
+            Task consumer = Task.Run(() => {
+                while (!dataList.IsCompleted) {
+                    Product consumee;
+                    if (dataList.TryTake(out consumee)) {
+                        Consume(consumee);
+                    } else {
+                        Console.WriteLine("list is empty");
+                    }
+                    
+                }
+                ready.Set();
+            });
+            ready.WaitOne();
+            Console.WriteLine("Done!!");
+            
+        }
+
+        private static Product Produce(int id, string name) {
+            Console.WriteLine($"Producing {id}: {name}");
+            Thread.Sleep(1000);
+            return new Product(id, name);
+        }
+
+        private static void Consume(Product product) {
+            Console.WriteLine($"Consuming {product.Id}: {product.Name}");
+            Thread.Sleep(3000);
         }
 
 
