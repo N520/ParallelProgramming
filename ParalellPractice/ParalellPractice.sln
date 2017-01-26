@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParalellLoops", "ParalellLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerTest", "WorkerTest\WorkerTest.csproj", "{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedingWorkerExample", "FeedingWorkerExample\FeedingWorkerExample.csproj", "{5EB8A5A8-EC51-4DBD-8467-E8FBC1ABFC82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1817FE1A-158A-42AB-BB8B-E55B3CC0623C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB8A5A8-EC51-4DBD-8467-E8FBC1ABFC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB8A5A8-EC51-4DBD-8467-E8FBC1ABFC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB8A5A8-EC51-4DBD-8467-E8FBC1ABFC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB8A5A8-EC51-4DBD-8467-E8FBC1ABFC82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
